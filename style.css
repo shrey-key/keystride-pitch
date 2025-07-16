@@ -1,215 +1,104 @@
-:root {
-    /* Define a color palette for easier management and consistency */
-    --primary-blue: #182c56; /* Darker blue for primary actions */
-    --secondary-blue: #2a4a7a; /* Lighter blue for hover/accents */
-    --light-blue-gradient-start: rgba(200, 220, 255, 0.5); /* For subtle background blobs */
-    --light-blue-gradient-end: transparent;
-    --background-light-grey: #f0f2f5; /* A softer, more modern light grey */
-    --card-background: rgba(255, 255, 255, 0.9); /* Slightly less opaque white for frosted effect */
-    --text-color-dark: #333;
-    --text-color-light: #fff;
-    --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.08); /* Softer, subtle shadow */
-    --shadow-medium: 0 4px 15px rgba(0, 0, 0, 0.12); /* Slightly more prominent shadow for card */
-    --border-radius-small: 6px;
-    --border-radius-medium: 10px;
-}
-
 body {
-    margin: 0;
-    font-family: 'Inter', 'Segoe UI', Arial, sans-serif; /* Prioritize a modern font like Inter, with fallbacks */
-    background: var(--background-light-grey);
-    position: relative;
-    min-height: 100vh;
-    overflow-x: hidden; /* Prevent horizontal scroll due to blobs */
-    display: flex; /* Use flexbox for centering main content easily */
-    flex-direction: column;
-    align-items: center; /* Center horizontally */
-    justify-content: flex-start; /* Align to the top, main content will push down */
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  position: relative;
+  min-height: 100vh;
 }
 
-/* Blurred background blobs */
-/* Using a more subtle blue/white gradient for the blobs */
-body::before,
-body::after {
-    content: "";
-    position: absolute;
-    width: 350px; /* Slightly smaller blobs */
-    height: 350px;
-    background: radial-gradient(circle, var(--light-blue-gradient-start), var(--light-blue-gradient-end) 70%);
-    filter: blur(100px); /* Increased blur for a softer effect */
-    z-index: 0; /* Keep behind content */
-    opacity: 0.7; /* Slightly reduce opacity */
-}
-
+/* Blurred background blob */
 body::before {
-    top: -80px; /* Adjust position */
-    left: -80px;
-    transform: rotate(15deg); /* Add a slight rotation for dynamism */
+  content: "";
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,140,120,0.7), transparent 70%);
+  filter: blur(80px);
+  z-index: 0;
 }
-
+/* Blurred background blob bottom-right */
 body::after {
-    bottom: -80px; /* Adjust position */
-    right: -80px;
-    transform: rotate(-25deg); /* Add a slight rotation for dynamism */
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,140,120,0.7), transparent 70%);
+  filter: blur(80px);
+  z-index: 0;
 }
-
 header {
-    width: 100%; /* Header should span full width */
-    display: flex;
-    align-items: center;
-    background: var(--card-background); /* Use the card background variable */
-    backdrop-filter: blur(12px); /* Slightly increased blur */
-    padding: 15px 30px; /* More padding */
-    box-shadow: var(--shadow-light); /* Softer shadow */
-    position: sticky; /* Sticky header for better UX */
-    top: 0;
-    z-index: 10; /* Higher z-index for header */
+  display: flex;
+  align-items: center;
+  background: #ffffffcc;
+  backdrop-filter: blur(10px);
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 1;
 }
 
 header img {
-    height: 45px; /* Slightly smaller logo for better balance */
-    margin-right: 10px; /* Space between logo and potential text */
-}
-
-/* If there's "An A3Logics Company" text next to the logo, style it */
-header .company-name {
-    font-size: 14px;
-    color: #666;
-    margin-left: 5px; /* Space between logo and text */
+  height: 50px;
 }
 
 main {
-    position: relative;
-    z-index: 1;
-    padding: 50px 30px; /* Increased padding inside the card */
-    width: 100%; /* Take full width initially for responsiveness */
-    max-width: 700px; /* Increased max-width for slightly larger card */
-    background: var(--card-background);
-    backdrop-filter: blur(12px); /* Consistent blur */
-    border-radius: var(--border-radius-medium); /* More rounded corners */
-    box-shadow: var(--shadow-medium); /* More prominent, but soft, shadow */
-    margin-top: 80px; /* Adjust margin-top to push it down from header */
-    margin-bottom: 80px; /* Add bottom margin for spacing */
-    flex-shrink: 0; /* Prevent shrinking when content is long */
+  position: relative;
+  z-index: 1;
+  padding: 40px 20px;
+  max-width: 600px;
+  background: #ffffffcc;
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  box-shadow:0 2px 10px rgb(0 0 0 / 39%);
+      margin-left: 350px;
+    margin-right: 350px;
+    margin-top: 100px;
 }
 
 h1 {
-    font-size: 28px; /* Slightly larger heading */
-    font-weight: 600; /* Medium bold for modern look */
-    margin-bottom: 30px; /* More space below heading */
-    text-align: center;
-    color: var(--text-color-dark);
-    line-height: 1.3; /* Improve readability */
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column; /* Stack buttons vertically by default for mobile-first */
-    justify-content: center;
-    align-items: center; /* Center items when stacked */
-    gap: 20px; /* Consistent gap between buttons */
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
-/* Primary Button Style */
-.button-primary {
-    display: inline-block;
-    text-decoration: none;
-    color: var(--text-color-light);
-    background: var(--primary-blue);
-    padding: 15px 25px; /* More padding for a bolder button */
-    border-radius: var(--border-radius-small);
-    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    min-width: 280px; /* Increased min-width for larger buttons */
-    text-align: center;
-    font-weight: 600; /* Semi-bold text */
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 10px rgba(24, 44, 86, 0.2); /* Shadow that matches button color */
+li {
+  margin: 0; /* Remove extra spacing */
 }
 
-.button-primary:hover {
-    background: var(--secondary-blue); /* Lighter blue on hover */
-    transform: translateY(-2px); /* Subtle lift effect */
-    box-shadow: 0 6px 15px rgba(24, 44, 86, 0.3); /* Enhanced shadow on hover */
+/* a {
+  display: inline-block;
+  text-decoration: none;
+  color: #ffffff;
+  background: #114171;
+  padding: 10px 16px;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+} */
+ a {
+  display: inline-block;
+  text-decoration: none;
+  color: #ffffff;
+  background: #182c56;
+  padding: 10px 16px;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+  min-width: 220px;   /* Ensures all buttons are same width */
+  text-align: center; /* Centers text inside button */
+  min-height: 40px;
 }
 
-/* Secondary Button Style (for "Our Work in Action") */
-.button-secondary {
-    display: inline-block;
-    text-decoration: none;
-    color: var(--primary-blue); /* Text color is primary blue */
-    background: transparent; /* Transparent background */
-    border: 2px solid var(--primary-blue); /* Blue border */
-    padding: 13px 25px; /* Adjust padding to match primary button height with border */
-    border-radius: var(--border-radius-small);
-    transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    min-width: 280px;
-    text-align: center;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-}
-
-.button-secondary:hover {
-    background: var(--primary-blue); /* Fill with primary blue on hover */
-    color: var(--text-color-light); /* Change text to white on hover */
-    transform: translateY(-2px); /* Subtle lift effect */
-    box-shadow: 0 4px 10px rgba(24, 44, 86, 0.2); /* Add shadow on hover */
-}
-
-/* Focus States for Accessibility */
-a:focus-visible {
-    outline: 3px solid var(--secondary-blue);
-    outline-offset: 4px;
-    border-radius: var(--border-radius-small);
-}
-
-/* Responsive Design */
-@media (min-width: 768px) {
-    ul {
-        flex-direction: row; /* Buttons side-by-side on larger screens */
-        gap: 30px; /* Slightly more gap for larger screens */
-    }
-
-    .button-primary,
-    .button-secondary {
-        min-width: 260px; /* Adjust min-width for desktop view */
-    }
-}
-
-@media (max-width: 767px) {
-    header {
-        padding: 10px 15px; /* Less padding on smaller screens */
-    }
-    header img {
-        height: 40px; /* Smaller logo on mobile */
-    }
-    h1 {
-        font-size: 22px; /* Smaller heading on mobile */
-        margin-bottom: 25px;
-    }
-    main {
-        margin-top: 40px;
-        margin-bottom: 40px;
-        padding: 30px 20px;
-        border-radius: var(--border-radius-small); /* Slightly less rounded on small screens */
-    }
-    .button-primary,
-    .button-secondary {
-        min-width: 90%; /* Buttons take up more width on small screens */
-        padding: 12px 20px; /* Slightly less padding */
-        font-size: 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    body::before,
-    body::after {
-        width: 250px;
-        height: 250px;
-        filter: blur(70px);
-    }
-    main {
-        max-width: 90%; /* Ensure card doesn't touch edges */
-    }
+a:hover {
+  background: #0c4e91;
 }
